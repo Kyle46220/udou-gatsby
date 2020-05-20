@@ -1,3 +1,12 @@
 import React from "react"
 
-export default () => <div>Hello world!</div>
+import { Header } from "../components/header"
+import Container from "../components/container"
+import { Home } from "./home"
+
+export default () => (
+  <div>
+    <Header />
+    <Home />
+  </div>
+)

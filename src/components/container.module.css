@@ -1,0 +1,7 @@
+.container {
+  margin: 3rem auto;
+  max-width: 600px;
+  height: 100%;
+  border-color: fuchsia;
+  border-width: 10px;
+}
