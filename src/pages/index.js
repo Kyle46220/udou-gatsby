@@ -1,12 +1,21 @@
 import React from "react"
 
-import { Header } from "../components/header"
-import Container from "../components/container"
-import { Home } from "./home"
+import Header from "../components/header.js"
+import Container from "../layouts/container"
+import Home from "./home"
+import { Portal } from "@rmwc/base"
 
-export default () => (
-  <div>
-    <Header />
-    <Home />
-  </div>
-)
+export default () => {
+  return (
+    <div>
+      <Header />
+      <div
+        style={{ display: "block", width: "1000px", backgroundColor: "pink" }}
+      >
+        Portal over here
+        <Portal />
+      </div>
+      <Home />
+    </div>
+  )
+}
