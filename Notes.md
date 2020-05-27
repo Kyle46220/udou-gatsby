@@ -22,4 +22,24 @@ I can't seem to get the actual returned data query to work. I'm wondering if its
 Next I'm going to try to either put the query in the parent page component (here its index) or maybe its the static query thing.
 But for now. BEd!
 
-ok so i got the images to work and I've been doing some styling
+ok so i got the images to work and I've been doing some styling. The CSS styling is confusing whe putting it with react components.
+
+there's are few things going on.
+
+There's CSS modules. you make a separate filename.module.css and then import this into the component as a module then you use the css in the component as className={moduleName.cssClass}
+
+There's also some inline, I think its CSS in JS, where everything is pass through in a style props inside the component tag.
+
+Then there's the CSS styles that come in with the component library from RMWC
+
+Then I'm also using styled components.
+
+so which order is the cascade?
+
+I think for things like a button, or a smaller component I want to use a styled component.
+
+But for bigger things Like a whole Panel or page, I want to use a css module.
+
+then for individual things in the component, you can use CSS in JS.
+
+Later I wonder If I will have to trim down all the CSS I have imported that I don't actually need.

@@ -1,8 +1,10 @@
 import React from "react"
 import Container from "../layouts/container"
 import { Button } from "@rmwc/button"
+import { Typography } from "@rmwc/typography"
+import "@rmwc/typography/styles"
 import "@material/button/dist/mdc.button.css"
-import { Grid, GridCell } from "@rmwc/grid"
+import { Grid, GridCell, GridRow } from "@rmwc/grid"
 import Cover from "../components/coverButton"
 import Img from "gatsby-image"
 import "@rmwc/grid/styles"
@@ -33,15 +35,21 @@ export default () => {
   console.log(data)
   return (
     <div>
-      <Cover className={homeStyles.cover} data={data} />
-      <Img fluid={data.file.childImageSharp.fluid}>
-        <Button style={{ zIndex: "22" }}>Img</Button>
-      </Img>
       <Grid>
-        <GridCell span={12}>
-          <Button>Cover</Button>
-          <Cover data={data} />
-        </GridCell>
+        <GridRow>
+          <GridCell span={12}>
+            <Cover className={homeStyles.cover} data={data} />
+          </GridCell>
+        </GridRow>
+        <GridRow>
+          <GridCell span={12}>
+            <div className={homeStyles.titleBox}>
+              <Typography use="headline5" style={{ margin: "10px" }}>
+                Get amongst all this shit
+              </Typography>
+            </div>
+          </GridCell>
+        </GridRow>
         <GridCell span={6}></GridCell>
         <GridCell
           span={12}

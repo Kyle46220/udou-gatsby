@@ -9,10 +9,7 @@ export default () => {
   return (
     <div>
       <Header />
-      <div
-        style={{ display: "block", width: "1000px", backgroundColor: "pink" }}
-      >
-        Portal over here
+      <div>
         <Portal />
       </div>
       <Home />

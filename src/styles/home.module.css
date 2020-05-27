@@ -5,3 +5,11 @@
   align-items: center;
   justify-content: center;
 }
+
+.titleBox {
+  background-color: var(--surface-grey);
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
