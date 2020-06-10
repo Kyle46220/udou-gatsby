@@ -43,3 +43,16 @@ But for bigger things Like a whole Panel or page, I want to use a css module.
 then for individual things in the component, you can use CSS in JS.
 
 Later I wonder If I will have to trim down all the CSS I have imported that I don't actually need.
+
+2/06/20
+
+Tonight i got the card menu working. the issue was that the wrapping anchor element needed to be around the whole header and not just the button. The portal wasn't really relevant here as it turns out.
+never mind actually just realised that now if you clock over the whole header it opens the menu. Duh.
+
+Ok so an import thing i realised is that you can use all the mdc-whatever\_\_something classname systems to referc to all the objects. RMWC keeps all these standards.
+
+8/06 -
+
+my goal today is to figure out responive layout grid for the card components, and make a large feature card.
+
+So with the css. you have some universal components in a universal file, then you have modules specific to components, and then in each instance of a component you have the syled component instance, and then for tiny little changes you can use the inline js attribute styling.

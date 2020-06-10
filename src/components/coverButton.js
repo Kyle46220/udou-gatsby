@@ -17,7 +17,6 @@ const Cover = props => {
       className={props.className}
       fluid={props.data.file.childImageSharp.fluid}
     >
-      {" "}
       <StyledTypography style={{ paddingBottom: "10px" }} use="headline3">
         Built To Fit
       </StyledTypography>

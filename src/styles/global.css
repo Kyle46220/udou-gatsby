@@ -12,3 +12,9 @@ body {
 :root {
   --surface-grey: #eeeee1;
 }
+
+.portal {
+  position: absolute;
+  left: 0;
+  top: 0;
+}

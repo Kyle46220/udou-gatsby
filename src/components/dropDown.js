@@ -1,6 +1,7 @@
 import React from "react"
 import { MenuSurface, MenuSurfaceAnchor } from "@rmwc/menu"
 import "@rmwc/menu/styles"
+import { graphql, useStaticQuery } from "gatsby"
 
 import { Button } from "@rmwc/button"
 import "@rmwc/button/styles"
@@ -8,39 +9,69 @@ import "@rmwc/button/styles"
 import DropDownCard from "./dropdownCard"
 import "@rmwc/card/styles"
 
-function DropDown() {
+const DropDown = () => {
   const [open, setOpen] = React.useState(false)
   // const [anchorCorner, setAnchorCorner] = React.useState("topLeft")
-  const [renderToPortal, setRenderToPortal] = React.useState(true)
+  // const [renderToPortal, setRenderToPortal] = React.useState(true)
+
+  const data = useStaticQuery(graphql`
+    query {
+      images: allFile(filter: { relativeDirectory: { eq: "DropDownImages" } }) {
+        nodes {
+          id
+          childImageSharp {
+            fixed {
+              width
+              height
+              originalName
+              ...GatsbyImageSharpFixed
+            }
+            fluid(maxWidth: 500, quality: 100) {
+              originalName
+              ...GatsbyImageSharpFluid
+              ...GatsbyImageSharpFluidLimitPresentationSize
+            }
+          }
+        }
+      }
+    }
+  `)
+
+  const getCardImages = () => {
+    return data.images.nodes.map(image => (
+      <DropDownCard
+        // title={image.childImageSharp.fluid.originalName}
+        title="Product"
+        key={image.id}
+        fluid={image.childImageSharp.fluid}
+      />
+    ))
+  }
 
   return (
     <div>
-      <MenuSurfaceAnchor>
-        <MenuSurface
-          open={open}
-          onClose={evt => setOpen(false)}
-          // renderToPortal="true"
-          anchorCorner="bottomLeft"
+      <MenuSurface
+        open={open}
+        onClose={evt => setOpen(false)}
+        renderToPortal="true"
+        anchorCorner="bottomLeft"
+        // style={{ width: "50vw", overflowX: "hidden" }}
+      >
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "row",
+            padding: "1rem",
+            overflowX: "scroll",
+          }}
         >
-          <div
-            style={{
-              display: "flex",
-              flexDirection: "row",
-              padding: "1rem",
-              // width: window.innerWidth,
-            }}
-          >
-            <DropDownCard title="BookShelves" />
-            <DropDownCard />
-            <DropDownCard />
-            <DropDownCard />
-          </div>
-        </MenuSurface>
+          {getCardImages()}
+        </div>
+      </MenuSurface>
 
-        <Button raised onClick={e => setOpen(!open)}>
-          Shelves
-        </Button>
-      </MenuSurfaceAnchor>
+      <Button raised onClick={e => setOpen(!open)}>
+        Shelves
+      </Button>
     </div>
   )
 }

@@ -9,6 +9,7 @@ import {
   TopAppBarTitle,
   TopAppBarFixedAdjust,
   TopAppBarActionItem,
+  TopAppBarNavigationIcon,
 } from "@rmwc/top-app-bar"
 // import {
 //   SimpleMenu,
@@ -29,6 +30,7 @@ import "@rmwc/typography/styles"
 import { IconButton } from "@rmwc/icon-button"
 import "@rmwc/icon-button"
 import { Portal } from "@rmwc/base"
+import { MenuSurfaceAnchor } from "@rmwc/menu"
 
 const ListLink = props => (
   <li style={{ display: `inline-block`, marginRight: `1rem` }}>
@@ -43,27 +45,33 @@ const ListLink = props => (
 export default () => {
   return (
     <div>
-      <TopAppBar title="UDOU">
-        <TopAppBarRow>
-          <TopAppBarSection>
-            <Link to="/">
-              <TopAppBarTitle>UDOU</TopAppBarTitle>
-            </Link>
-          </TopAppBarSection>
-          <TopAppBarSection>
-            <DropDown></DropDown>
-          </TopAppBarSection>
+      <MenuSurfaceAnchor>
+        <TopAppBar title="UDOU">
+          <TopAppBarRow>
+            <TopAppBarSection alignStart>
+              <TopAppBarNavigationIcon icon="menu" />
 
-          <TopAppBarSection>
-            <ul>
-              <ListLink to="/">Shelves</ListLink>
-              <ListLink to="/">About</ListLink>
-              <ListLink to="/">Contact</ListLink>
-            </ul>
-          </TopAppBarSection>
-        </TopAppBarRow>
-      </TopAppBar>
-      <TopAppBarFixedAdjust />
+              <TopAppBarTitle>UDOU</TopAppBarTitle>
+            </TopAppBarSection>
+            <TopAppBarSection>
+              <DropDown />
+            </TopAppBarSection>
+            {/* <TopAppBarSection alignEnd>
+              <ul>
+                <ListLink to="/">Shelves</ListLink>
+                <ListLink to="/">About</ListLink>
+                <ListLink to="/">Contact</ListLink>
+              </ul>
+            </TopAppBarSection> */}
+            <TopAppBarSection alignEnd>
+              <TopAppBarActionItem icon="favorite" />
+              <TopAppBarActionItem icon="star" />
+              <TopAppBarActionItem icon="mood" />
+            </TopAppBarSection>
+          </TopAppBarRow>
+        </TopAppBar>
+        <TopAppBarFixedAdjust />
+      </MenuSurfaceAnchor>
     </div>
   )
 }

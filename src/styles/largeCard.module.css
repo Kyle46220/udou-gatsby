@@ -1,0 +1,15 @@
+.background {
+  background-color: var(--surface-grey);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.gridCustom {
+  width: 100%;
+}
+.textArea {
+}
+
+/* How to figure out how to plug the colours into the RMWC theme colours.  */

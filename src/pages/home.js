@@ -11,6 +11,9 @@ import "@rmwc/grid/styles"
 import { useStaticQuery, graphql } from "gatsby"
 import homeStyles from "../styles/home.module.css"
 
+import ProductCards from "../components/productCards"
+import LargeCardContainer from "../components/largeCardContainer"
+
 export default () => {
   const data = useStaticQuery(graphql`
     query {
@@ -50,20 +53,16 @@ export default () => {
             </div>
           </GridCell>
         </GridRow>
-        <GridCell span={6}></GridCell>
-        <GridCell
-          span={12}
-          style={{ backgroundImage: "data.file.childImageSharp.fluid" }}
-        >
-          {/* <Img title="HomeImage" alt="interior" sizes={props.HomeImage.sizes} /> */}
-          {/* <Img fixed={data.file.childImageSharp.fixed} /> */}
-
-          {/* <Img
-            // style={{ width: "100%" }}
-            fluid={data.file.childImageSharp.fluid}
-          /> */}
-        </GridCell>
+        <GridRow>
+          <GridCell span={3}></GridCell>
+          <GridCell span={3}></GridCell>
+          <GridCell span={3}></GridCell>
+          <GridCell span={3}></GridCell>
+        </GridRow>
+        <GridRow></GridRow>
       </Grid>
+      <ProductCards />
+      <LargeCardContainer image={data.file.childImageSharp.fluid} />
     </div>
   )
 }
