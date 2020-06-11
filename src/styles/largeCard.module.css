@@ -12,4 +12,11 @@
 .textArea {
 }
 
+.textContainer {
+  display: flex;
+  flex-direction: column;
+
+  justify-content: center;
+}
+
 /* How to figure out how to plug the colours into the RMWC theme colours.  */

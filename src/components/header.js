@@ -49,8 +49,9 @@ export default () => {
         <TopAppBar title="UDOU">
           <TopAppBarRow>
             <TopAppBarSection alignStart>
-              <TopAppBarNavigationIcon icon="menu" />
-
+              <Link to="/">
+                <TopAppBarNavigationIcon icon="menu" />
+              </Link>
               <TopAppBarTitle>UDOU</TopAppBarTitle>
             </TopAppBarSection>
             <TopAppBarSection>

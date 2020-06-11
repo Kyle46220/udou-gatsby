@@ -16,9 +16,11 @@
   "dependencies": {
     "@rmwc/button": "^6.0.14",
     "@rmwc/card": "^6.0.14",
+    "@rmwc/drawer": "^6.0.14",
     "@rmwc/grid": "^6.0.14",
     "@rmwc/icon": "^6.0.14",
     "@rmwc/icon-button": "^6.0.14",
+    "@rmwc/list": "^6.0.14",
     "@rmwc/menu": "^6.0.14",
     "@rmwc/top-app-bar": "^6.0.14",
     "@rmwc/typography": "^6.0.14",

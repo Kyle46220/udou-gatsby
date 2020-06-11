@@ -55,7 +55,6 @@ const DropDown = () => {
         onClose={evt => setOpen(false)}
         renderToPortal="true"
         anchorCorner="bottomLeft"
-        // style={{ width: "50vw", overflowX: "hidden" }}
       >
         <div
           style={{
@@ -63,6 +62,7 @@ const DropDown = () => {
             flexDirection: "row",
             padding: "1rem",
             overflowX: "scroll",
+            width: "100vw",
           }}
         >
           {getCardImages()}

@@ -16,34 +16,48 @@ import { Typography } from "@rmwc/typography"
 import "@rmwc/typography/styles"
 import Img from "gatsby-image"
 import BackgroundImage from "gatsby-background-image"
+import styled from "styled-components"
+const StyledTypography = styled(Typography)`
+  text-align: center;
+`
 
 export default props => {
   return (
-    <Card style={{ width: `${props.width}` }}>
+    <Card
+      style={{
+        width: `${props.width}`,
+        height: `${props.height}`,
+        margin: "1rem",
+      }}
+    >
       <CardPrimaryAction>
         <BackgroundImage fluid={props.image}>
-          <CardMedia sixteenByNine />
+          <CardMedia square />
         </BackgroundImage>
 
         <div style={{ padding: "0 1rem 1rem 1rem" }}>
-          <Typography use="headline6" tag="h2">
+          <StyledTypography use="headline6" tag="h2">
             Our Changing Planet
-          </Typography>
-          <Typography
+          </StyledTypography>
+          {/* <Typography
             use="subtitle2"
-            tag="h3"
+            tag="subtitle2"
             theme="textSecondaryOnBackground"
             style={{ marginTop: "-1rem" }}
           >
             by Kurt Wagner
-          </Typography>
-          <Typography use="body1" tag="div" theme="textSecondaryOnBackground">
+          </Typography> */}
+          <StyledTypography
+            use="body2"
+            tag="div"
+            theme="textSecondaryOnBackground"
+          >
             Visit ten places on our planet that are undergoing the biggest
             changes today.
-          </Typography>
+          </StyledTypography>
         </div>
       </CardPrimaryAction>
-      <CardActions>
+      {/* <CardActions>
         <CardActionButtons>
           <CardActionButton>Read</CardActionButton>
           <CardActionButton>Bookmark</CardActionButton>
@@ -53,7 +67,7 @@ export default props => {
           <CardActionIcon icon="share" />
           <CardActionIcon icon="more_vert" />
         </CardActionIcons>
-      </CardActions>
+      </CardActions> */}
     </Card>
   )
 }

@@ -61,7 +61,7 @@ export default () => {
         </GridRow>
         <GridRow></GridRow>
       </Grid>
-      <ProductCards />
+      <ProductCards image={data.file.childImageSharp.fluid} />
       <LargeCardContainer image={data.file.childImageSharp.fluid} />
     </div>
   )
