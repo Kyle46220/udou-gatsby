@@ -38,18 +38,32 @@ export default () => {
       }
     }
   `)
-  const products = ["type01", "type02", "type03"]
+
+  const products = () => {
+    const num = 20
+    const result = []
+    let i = 0
+    while (i < num) {
+      result.push(`type` + `${i}`.padStart(2, "0"))
+      i++
+    }
+    return result
+  }
+  // const products = ["type01", "type02", "type03", "type04"]
   const span = 4
   const phone = 4
   const tablet = 4
 
   const getProducts = () => {
-    return products.map(product => (
+    return products().map(product => (
       <GridCell span={span} phone={phone} tablet={tablet}>
-        <FeatureCard
+        <DropDownCard
           title={product}
           image={data.file.childImageSharp.fluid}
           height="20rem"
+          fluid={data.file.childImageSharp.fluid}
+          width="auto"
+          link="/configurator/"
         />
       </GridCell>
     ))

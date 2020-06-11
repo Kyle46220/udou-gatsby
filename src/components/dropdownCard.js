@@ -24,7 +24,7 @@ const StyledCardActionButtons = styled(CardActionButtons)`
 export default props => {
   console.log(props.fluid)
   return (
-    <Card style={{ width: "1000px", margin: "0.5rem" }}>
+    <Card style={{ width: `${props.width}`, margin: "0.5rem" }}>
       <CardPrimaryAction>
         <BackgroundImage fluid={props.fluid}>
           <CardMedia square />
@@ -40,7 +40,7 @@ export default props => {
         }}
       >
         <StyledCardActionButtons style={{ backgroundColor: "pink" }}>
-          <Link to="/productIndex/">
+          <Link to={props.link}>
             <Typography
               use="button"
               tag="div"

@@ -44,6 +44,8 @@ const DropDown = () => {
         title="Product"
         key={image.id}
         fluid={image.childImageSharp.fluid}
+        width="20rem"
+        link={"/productIndex/"}
       />
     ))
   }

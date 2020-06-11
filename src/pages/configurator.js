@@ -6,6 +6,7 @@ import "@rmwc/typography/styles"
 import "@material/button/dist/mdc.button.css"
 import { Grid, GridCell, GridRow } from "@rmwc/grid"
 import Header from "../components/header"
+import Container from "../layouts/container"
 
 import Img from "gatsby-image"
 import "@rmwc/grid/styles"
@@ -15,5 +16,9 @@ import configStyles from "../styles/configurator.module.css"
 export default () => {
   // const data = useStaticQuery(graphql`query`)
 
-  return <Header></Header>
+  return (
+    <Container>
+      <Header />
+    </Container>
+  )
 }
