@@ -1,5 +1,5 @@
 import React from "react"
-import { Link } from "gatsby"
+import { Link, useStaticQuery, graphql, StaticQuery } from "gatsby"
 import DropDown from "../components/dropDown"
 import {
   TopAppBar,
@@ -43,6 +43,28 @@ const ListLink = props => (
 )
 
 export default () => {
+  const dropDownImages = useStaticQuery(graphql`
+    query {
+      images: allFile(filter: { relativeDirectory: { eq: "DropDownImages" } }) {
+        nodes {
+          id
+          childImageSharp {
+            fixed {
+              width
+              height
+              originalName
+              ...GatsbyImageSharpFixed
+            }
+            fluid(maxWidth: 500, quality: 100) {
+              originalName
+              ...GatsbyImageSharpFluid
+              ...GatsbyImageSharpFluidLimitPresentationSize
+            }
+          }
+        }
+      }
+    }
+  `)
   return (
     <div>
       <MenuSurfaceAnchor>
@@ -55,7 +77,7 @@ export default () => {
               <TopAppBarTitle>UDOU</TopAppBarTitle>
             </TopAppBarSection>
             <TopAppBarSection>
-              <DropDown />
+              <DropDown images={dropDownImages.images.nodes} />
             </TopAppBarSection>
             {/* <TopAppBarSection alignEnd>
               <ul>

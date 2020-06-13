@@ -9,36 +9,36 @@ import "@rmwc/button/styles"
 import DropDownCard from "./dropdownCard"
 import "@rmwc/card/styles"
 
-const DropDown = () => {
+const DropDown = props => {
   const [open, setOpen] = React.useState(false)
   // const [anchorCorner, setAnchorCorner] = React.useState("topLeft")
   // const [renderToPortal, setRenderToPortal] = React.useState(true)
 
-  const data = useStaticQuery(graphql`
-    query {
-      images: allFile(filter: { relativeDirectory: { eq: "DropDownImages" } }) {
-        nodes {
-          id
-          childImageSharp {
-            fixed {
-              width
-              height
-              originalName
-              ...GatsbyImageSharpFixed
-            }
-            fluid(maxWidth: 500, quality: 100) {
-              originalName
-              ...GatsbyImageSharpFluid
-              ...GatsbyImageSharpFluidLimitPresentationSize
-            }
-          }
-        }
-      }
-    }
-  `)
+  // export const dropDownImages = useStaticQuery(graphql`
+  //   query {
+  //     images: allFile(filter: { relativeDirectory: { eq: "DropDownImages" } }) {
+  //       nodes {
+  //         id
+  //         childImageSharp {
+  //           fixed {
+  //             width
+  //             height
+  //             originalName
+  //             ...GatsbyImageSharpFixed
+  //           }
+  //           fluid(maxWidth: 500, quality: 100) {
+  //             originalName
+  //             ...GatsbyImageSharpFluid
+  //             ...GatsbyImageSharpFluidLimitPresentationSize
+  //           }
+  //         }
+  //       }
+  //     }
+  //   }
+  // `)
 
   const getCardImages = () => {
-    return data.images.nodes.map(image => (
+    return props.images.map(image => (
       <DropDownCard
         // title={image.childImageSharp.fluid.originalName}
         title="Product"

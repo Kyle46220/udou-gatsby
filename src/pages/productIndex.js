@@ -6,7 +6,7 @@ import { Typography } from "@rmwc/typography"
 import "@rmwc/typography/styles"
 import "@material/button/dist/mdc.button.css"
 import { Grid, GridCell, GridRow } from "@rmwc/grid"
-import Header from "../components/header"
+import Header from "../layouts/header"
 import DropDownCard from "../components/dropdownCard"
 import FeatureCard from "../components/featureCard"
 

@@ -1,7 +1,7 @@
 import React from "react"
 import containerStyles from "../styles/container.module.css"
 import { graphql } from "gatsby"
-import Header from "../components/header"
+import Header from "./header"
 export default ({ children }) => {
   return (
     <div className={containerStyles.container}>

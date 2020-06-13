@@ -22,7 +22,6 @@ const StyledCardActionButtons = styled(CardActionButtons)`
 `
 
 export default props => {
-  console.log(props.fluid)
   return (
     <Card style={{ width: `${props.width}`, margin: "0.5rem" }}>
       <CardPrimaryAction>
