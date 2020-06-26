@@ -7,8 +7,10 @@ import { Switch } from "@rmwc/switch"
 import "@rmwc/switch/styles"
 import { Slider } from "@rmwc/slider"
 import "@rmwc/slider/styles"
-// import { ChipSet, Chip } from "@rmwc/chip"
-// import "@rmwc/chip/styles"
+import { ChipSet, Chip } from "@rmwc/chip"
+import "@rmwc/chip/styles"
+import { Elevation } from "@rmwc/elevation"
+import "@rmwc/elevation/styles"
 import ControlledSlider from "../components/controlledSlider"
 import Img from "gatsby-image"
 
@@ -20,7 +22,7 @@ import { Grid, GridCell, GridRow } from "@rmwc/grid"
 import styled from "styled-components"
 import { graphql, useStaticQuery } from "gatsby"
 
-import DepthChips from "../components/threeChip"
+// import DepthChips from "../components/threeChip"
 const StyledTypography = styled(Typography)`
   margin-top: 1.5rem;
 `
@@ -49,6 +51,51 @@ export default props => {
     }
   `)
 
+  const rand = (min, max) => {
+    if (max === undefined) {
+      max = min
+      min = 0
+    }
+    return min + (max - min) * Math.random()
+  }
+
+  const randomColor = () => {
+    return `hsl(${rand(360) | 0}, ${rand(50, 100) | 0}%, 50%)`
+  }
+
+  const makeColours = num => {
+    return [1, 2, 3, 4].map(item => {
+      const colour = randomColor()
+      return (
+        <GridCell
+          style={{
+            margin: "1rem",
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+          }}
+          span={3}
+          phone={1}
+          tablet={2}
+          key={item}
+        >
+          <Elevation
+            style={{
+              background: `${colour}`,
+              height: "2rem",
+              width: "2rem",
+              borderRadius: "1rem",
+            }}
+            z={3}
+          >
+            <div></div>
+          </Elevation>
+          <Radio value={colour} name="colourRadio" key={item} />
+        </GridCell>
+      )
+    })
+  }
+
   const makeOptions = () => {
     return data.images.nodes
       .filter((i, index) => index < 4)
@@ -56,7 +103,7 @@ export default props => {
         const name = image.childImageSharp.fluid.originalName.substring(0, 4)
 
         return (
-          <GridCell span={3} phone={1} tablet={2}>
+          <GridCell span={3} phone={1} tablet={2} key={image.id}>
             <Img fluid={image.childImageSharp.fluid} />
             <Radio value={name} name="stylePickerRadio" key={image.id}>
               <Typography use="button">{name}</Typography>
@@ -65,6 +112,9 @@ export default props => {
         )
       })
   }
+  // const sliderThumb = document.getElementsByClassName("mdc-slider__thumb")
+  // console.log((sliderThumb[0].style.color = "blue"))
+  // // console.log(sliderThumb.firstChild.children.innerHTML)
 
   return (
     <Card outlined>
@@ -98,19 +148,44 @@ export default props => {
             <ControlledSlider max={240} min={30} />
           </GridCell>
         </GridRow>
-        <GridRow style={{ justifyContent: "flex-end" }}>
+        <GridRow
+          style={{
+            display: "flex",
+            justifyContent: "space-between",
+            alignItems: "center",
+          }}
+        >
           <GridCell span={3} phone={1} tablet={2}>
             <StyledTypography use="subtitle1"> Depth </StyledTypography>
           </GridCell>
-          {/* <GridCell span={9} phone={3} tablet={6}>
-            <Button>18cm</Button>
-            <Button>28cm</Button>
-            <Button>38cm</Button>
-          </GridCell> */}
-          <GridCell>
-            <DepthChips />
+
+          <GridCell span={9} phone={3} tablet={6} style={{ display: "flex" }}>
+            {/* <DepthChips  /> */}
+            <ChipSet>
+              <Chip selected label="18cm" />
+              <Chip label="28cm" />
+              <Chip label="38cm" />
+            </ChipSet>
           </GridCell>
         </GridRow>
+        <GridRow>
+          <GridCell
+            style={{
+              margin: "1rem 0 1rem 0",
+              display: "flex",
+              justifyContent: "flex-start",
+            }}
+            span={12}
+            phone={4}
+            tablet={8}
+          >
+            <Switch defaultChecked>
+              {console.log(<Switch />)}
+              <Typography use="subtitle1">Back Panels</Typography>
+            </Switch>
+          </GridCell>
+        </GridRow>
+        <GridRow>{makeColours()}</GridRow>
       </Grid>
     </Card>
   )

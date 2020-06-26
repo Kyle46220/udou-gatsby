@@ -16,6 +16,7 @@ export default (max, min) => {
         max={235}
         min={30}
         step={1}
+        style={{ background: "pink" }}
       />
       <Typography use="button">{value}cm</Typography>
     </div>

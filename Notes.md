@@ -56,3 +56,9 @@ Ok so an import thing i realised is that you can use all the mdc-whatever\_\_som
 my goal today is to figure out responive layout grid for the card components, and make a large feature card.
 
 So with the css. you have some universal components in a universal file, then you have modules specific to components, and then in each instance of a component you have the syled component instance, and then for tiny little changes you can use the inline js attribute styling.
+
+getting the hang of using the component library. ITs pretty easy really. Very quick to build pages roughly. Formatting everything well and doing the media queries will be a bit harder but so far so good.
+
+I just had a thought about how I want to do a business plan. Like what are the steps to getting another developer building this app?
+
+How far do I go on my won? I'm going to write this in another doc now.

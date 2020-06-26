@@ -6,33 +6,42 @@ import "@rmwc/typography/styles"
 
 export default () => {
   const [selected, setSelected] = React.useState({
-    "18cm": false,
-    "28cm": false,
-    "38cm": true,
+    small: false,
+    medium: false,
+    large: false,
   })
 
+  // const toggleSelected = key => {
+  //   setSelected({ ...selected })
+  // }
+
   const toggleSelected = key => {
-    setSelected({ ...selected, [key]: !selected[key] })
+    setSelected({
+      small: false,
+      medium: false,
+      large: false,
+      [key]: !selected[key],
+    })
   }
   return (
     <ChipSet choice>
       <Chip
-        selected={selected[0]}
+        selected={selected.small}
         on
-        interaction={() => toggleSelected("18cm")}
+        interaction={() => toggleSelected("small")}
         label="18cm"
       />
       <Chip
-        selected={selected[1]}
+        selected={selected.medium}
         on
-        interaction={() => toggleSelected("18cm")}
-        label="18cm"
+        interaction={() => toggleSelected("medium")}
+        label="28cm"
       />
       <Chip
-        selected={selected[2]}
+        selected={selected.large}
         on
-        interaction={() => toggleSelected("18cm")}
-        label="18cm"
+        interaction={() => toggleSelected("large")}
+        label="38cm"
       />
     </ChipSet>
   )
